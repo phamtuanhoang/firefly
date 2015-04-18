@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F35F1EF01AE2666400642EEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1EEF1AE2666400642EEA /* main.m */; };
+		F35F1EF31AE2666400642EEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1EF21AE2666400642EEA /* AppDelegate.m */; };
+		F35F1EF61AE2666400642EEA /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1EF51AE2666400642EEA /* GameScene.m */; };
+		F35F1EF81AE2666400642EEA /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F35F1EF71AE2666400642EEA /* GameScene.sks */; };
+		F35F1EFB1AE2666400642EEA /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1EFA1AE2666400642EEA /* GameViewController.m */; };
+		F35F1EFE1AE2666400642EEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F35F1EFC1AE2666400642EEA /* Main.storyboard */; };
+		F35F1F001AE2666400642EEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35F1EFF1AE2666400642EEA /* Images.xcassets */; };
+		F35F1F031AE2666400642EEA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35F1F011AE2666400642EEA /* LaunchScreen.xib */; };
+		F35F1F0F1AE2666400642EEA /* fireflyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1F0E1AE2666400642EEA /* fireflyTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F35F1F091AE2666400642EEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F35F1EE21AE2666400642EEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F35F1EE91AE2666400642EEA;
+			remoteInfo = firefly;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F35F1EEA1AE2666400642EEA /* firefly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firefly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F35F1EEE1AE2666400642EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F35F1EEF1AE2666400642EEA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F35F1EF11AE2666400642EEA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F35F1EF21AE2666400642EEA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F35F1EF41AE2666400642EEA /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		F35F1EF51AE2666400642EEA /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		F35F1EF71AE2666400642EEA /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		F35F1EF91AE2666400642EEA /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		F35F1EFA1AE2666400642EEA /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		F35F1EFD1AE2666400642EEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F35F1EFF1AE2666400642EEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F35F1F021AE2666400642EEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F35F1F081AE2666400642EEA /* fireflyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fireflyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F35F1F0D1AE2666400642EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F35F1F0E1AE2666400642EEA /* fireflyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fireflyTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F35F1EE71AE2666400642EEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F35F1F051AE2666400642EEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F35F1EE11AE2666400642EEA = {
+			isa = PBXGroup;
+			children = (
+				F35F1EEC1AE2666400642EEA /* firefly */,
+				F35F1F0B1AE2666400642EEA /* fireflyTests */,
+				F35F1EEB1AE2666400642EEA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F35F1EEB1AE2666400642EEA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F35F1EEA1AE2666400642EEA /* firefly.app */,
+				F35F1F081AE2666400642EEA /* fireflyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F35F1EEC1AE2666400642EEA /* firefly */ = {
+			isa = PBXGroup;
+			children = (
+				F35F1EF11AE2666400642EEA /* AppDelegate.h */,
+				F35F1EF21AE2666400642EEA /* AppDelegate.m */,
+				F35F1EF41AE2666400642EEA /* GameScene.h */,
+				F35F1EF51AE2666400642EEA /* GameScene.m */,
+				F35F1EF71AE2666400642EEA /* GameScene.sks */,
+				F35F1EF91AE2666400642EEA /* GameViewController.h */,
+				F35F1EFA1AE2666400642EEA /* GameViewController.m */,
+				F35F1EFC1AE2666400642EEA /* Main.storyboard */,
+				F35F1EFF1AE2666400642EEA /* Images.xcassets */,
+				F35F1F011AE2666400642EEA /* LaunchScreen.xib */,
+				F35F1EED1AE2666400642EEA /* Supporting Files */,
+			);
+			path = firefly;
+			sourceTree = "<group>";
+		};
+		F35F1EED1AE2666400642EEA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F35F1EEE1AE2666400642EEA /* Info.plist */,
+				F35F1EEF1AE2666400642EEA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F35F1F0B1AE2666400642EEA /* fireflyTests */ = {
+			isa = PBXGroup;
+			children = (
+				F35F1F0E1AE2666400642EEA /* fireflyTests.m */,
+				F35F1F0C1AE2666400642EEA /* Supporting Files */,
+			);
+			path = fireflyTests;
+			sourceTree = "<group>";
+		};
+		F35F1F0C1AE2666400642EEA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F35F1F0D1AE2666400642EEA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F35F1EE91AE2666400642EEA /* firefly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F35F1F121AE2666400642EEA /* Build configuration list for PBXNativeTarget "firefly" */;
+			buildPhases = (
+				F35F1EE61AE2666400642EEA /* Sources */,
+				F35F1EE71AE2666400642EEA /* Frameworks */,
+				F35F1EE81AE2666400642EEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = firefly;
+			productName = firefly;
+			productReference = F35F1EEA1AE2666400642EEA /* firefly.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F35F1F071AE2666400642EEA /* fireflyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F35F1F151AE2666400642EEA /* Build configuration list for PBXNativeTarget "fireflyTests" */;
+			buildPhases = (
+				F35F1F041AE2666400642EEA /* Sources */,
+				F35F1F051AE2666400642EEA /* Frameworks */,
+				F35F1F061AE2666400642EEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F35F1F0A1AE2666400642EEA /* PBXTargetDependency */,
+			);
+			name = fireflyTests;
+			productName = fireflyTests;
+			productReference = F35F1F081AE2666400642EEA /* fireflyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F35F1EE21AE2666400642EEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = hoangpham;
+				TargetAttributes = {
+					F35F1EE91AE2666400642EEA = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					F35F1F071AE2666400642EEA = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = F35F1EE91AE2666400642EEA;
+					};
+				};
+			};
+			buildConfigurationList = F35F1EE51AE2666400642EEA /* Build configuration list for PBXProject "firefly" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F35F1EE11AE2666400642EEA;
+			productRefGroup = F35F1EEB1AE2666400642EEA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F35F1EE91AE2666400642EEA /* firefly */,
+				F35F1F071AE2666400642EEA /* fireflyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F35F1EE81AE2666400642EEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F35F1F031AE2666400642EEA /* LaunchScreen.xib in Resources */,
+				F35F1F001AE2666400642EEA /* Images.xcassets in Resources */,
+				F35F1EF81AE2666400642EEA /* GameScene.sks in Resources */,
+				F35F1EFE1AE2666400642EEA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F35F1F061AE2666400642EEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F35F1EE61AE2666400642EEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F35F1EFB1AE2666400642EEA /* GameViewController.m in Sources */,
+				F35F1EF31AE2666400642EEA /* AppDelegate.m in Sources */,
+				F35F1EF61AE2666400642EEA /* GameScene.m in Sources */,
+				F35F1EF01AE2666400642EEA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F35F1F041AE2666400642EEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F35F1F0F1AE2666400642EEA /* fireflyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F35F1F0A1AE2666400642EEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F35F1EE91AE2666400642EEA /* firefly */;
+			targetProxy = F35F1F091AE2666400642EEA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F35F1EFC1AE2666400642EEA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F35F1EFD1AE2666400642EEA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F35F1F011AE2666400642EEA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F35F1F021AE2666400642EEA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F35F1F101AE2666400642EEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F35F1F111AE2666400642EEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F35F1F131AE2666400642EEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = firefly/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F35F1F141AE2666400642EEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = firefly/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F35F1F161AE2666400642EEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = fireflyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/firefly.app/firefly";
+			};
+			name = Debug;
+		};
+		F35F1F171AE2666400642EEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = fireflyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/firefly.app/firefly";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F35F1EE51AE2666400642EEA /* Build configuration list for PBXProject "firefly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F35F1F101AE2666400642EEA /* Debug */,
+				F35F1F111AE2666400642EEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F35F1F121AE2666400642EEA /* Build configuration list for PBXNativeTarget "firefly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F35F1F131AE2666400642EEA /* Debug */,
+				F35F1F141AE2666400642EEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F35F1F151AE2666400642EEA /* Build configuration list for PBXNativeTarget "fireflyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F35F1F161AE2666400642EEA /* Debug */,
+				F35F1F171AE2666400642EEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F35F1EE21AE2666400642EEA /* Project object */;
+}
