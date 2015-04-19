@@ -16,6 +16,10 @@
 		F35F1F001AE2666400642EEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35F1EFF1AE2666400642EEA /* Images.xcassets */; };
 		F35F1F031AE2666400642EEA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35F1F011AE2666400642EEA /* LaunchScreen.xib */; };
 		F35F1F0F1AE2666400642EEA /* fireflyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1F0E1AE2666400642EEA /* fireflyTests.m */; };
+		F35F1F1B1AE2669A00642EEA /* Firefly.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1F1A1AE2669A00642EEA /* Firefly.m */; };
+		F35F1F201AE266CD00642EEA /* Obstacles.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1F1F1AE266CD00642EEA /* Obstacles.m */; };
+		F38BDF011AE278B800C40F66 /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = F38BDF001AE278B800C40F66 /* Background.m */; };
+		F3BB81551AE3E9EB00330F30 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BB81541AE3E9EB00330F30 /* Item.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,15 @@
 		F35F1F081AE2666400642EEA /* fireflyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fireflyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35F1F0D1AE2666400642EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F35F1F0E1AE2666400642EEA /* fireflyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fireflyTests.m; sourceTree = "<group>"; };
+		F35F1F191AE2669A00642EEA /* Firefly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firefly.h; sourceTree = "<group>"; };
+		F35F1F1A1AE2669A00642EEA /* Firefly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Firefly.m; sourceTree = "<group>"; };
+		F35F1F1C1AE266B300642EEA /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		F35F1F1E1AE266CD00642EEA /* Obstacles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacles.h; sourceTree = "<group>"; };
+		F35F1F1F1AE266CD00642EEA /* Obstacles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obstacles.m; sourceTree = "<group>"; };
+		F38BDEFF1AE278B800C40F66 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
+		F38BDF001AE278B800C40F66 /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Background.m; sourceTree = "<group>"; };
+		F3BB81531AE3E9EB00330F30 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		F3BB81541AE3E9EB00330F30 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,11 +99,16 @@
 		F35F1EEC1AE2666400642EEA /* firefly */ = {
 			isa = PBXGroup;
 			children = (
+				F3BB81521AE3E9CD00330F30 /* item */,
+				F38BDEFE1AE2787200C40F66 /* background */,
+				F35F1F1D1AE266BB00642EEA /* obstacles */,
+				F35F1F181AE2668400642EEA /* firefly */,
 				F35F1EF11AE2666400642EEA /* AppDelegate.h */,
 				F35F1EF21AE2666400642EEA /* AppDelegate.m */,
 				F35F1EF41AE2666400642EEA /* GameScene.h */,
 				F35F1EF51AE2666400642EEA /* GameScene.m */,
 				F35F1EF71AE2666400642EEA /* GameScene.sks */,
+				F35F1F1C1AE266B300642EEA /* Common.h */,
 				F35F1EF91AE2666400642EEA /* GameViewController.h */,
 				F35F1EFA1AE2666400642EEA /* GameViewController.m */,
 				F35F1EFC1AE2666400642EEA /* Main.storyboard */,
@@ -125,6 +143,42 @@
 				F35F1F0D1AE2666400642EEA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F35F1F181AE2668400642EEA /* firefly */ = {
+			isa = PBXGroup;
+			children = (
+				F35F1F191AE2669A00642EEA /* Firefly.h */,
+				F35F1F1A1AE2669A00642EEA /* Firefly.m */,
+			);
+			name = firefly;
+			sourceTree = "<group>";
+		};
+		F35F1F1D1AE266BB00642EEA /* obstacles */ = {
+			isa = PBXGroup;
+			children = (
+				F35F1F1E1AE266CD00642EEA /* Obstacles.h */,
+				F35F1F1F1AE266CD00642EEA /* Obstacles.m */,
+			);
+			name = obstacles;
+			sourceTree = "<group>";
+		};
+		F38BDEFE1AE2787200C40F66 /* background */ = {
+			isa = PBXGroup;
+			children = (
+				F38BDEFF1AE278B800C40F66 /* Background.h */,
+				F38BDF001AE278B800C40F66 /* Background.m */,
+			);
+			name = background;
+			sourceTree = "<group>";
+		};
+		F3BB81521AE3E9CD00330F30 /* item */ = {
+			isa = PBXGroup;
+			children = (
+				F3BB81531AE3E9EB00330F30 /* Item.h */,
+				F3BB81541AE3E9EB00330F30 /* Item.m */,
+			);
+			name = item;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +230,7 @@
 				TargetAttributes = {
 					F35F1EE91AE2666400642EEA = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = GX5GT5759H;
 					};
 					F35F1F071AE2666400642EEA = {
 						CreatedOnToolsVersion = 6.3;
@@ -228,10 +283,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3BB81551AE3E9EB00330F30 /* Item.m in Sources */,
 				F35F1EFB1AE2666400642EEA /* GameViewController.m in Sources */,
 				F35F1EF31AE2666400642EEA /* AppDelegate.m in Sources */,
 				F35F1EF61AE2666400642EEA /* GameScene.m in Sources */,
+				F38BDF011AE278B800C40F66 /* Background.m in Sources */,
 				F35F1EF01AE2666400642EEA /* main.m in Sources */,
+				F35F1F201AE266CD00642EEA /* Obstacles.m in Sources */,
+				F35F1F1B1AE2669A00642EEA /* Firefly.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,9 +416,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = firefly/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -367,9 +430,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = firefly/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -426,6 +493,7 @@
 				F35F1F141AE2666400642EEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F35F1F151AE2666400642EEA /* Build configuration list for PBXNativeTarget "fireflyTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +502,7 @@
 				F35F1F171AE2666400642EEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
