@@ -207,17 +207,18 @@
     /* Determine movement direction */
     if( location.x <= self.frame.size.width / 2 ) {
         // move left set acceleration to negative
-        playerAcceleration = - 1;
+        playerAcceleration = -2;
     }
     else {
         // move right set acceleration to negative
-        playerAcceleration = 1;
+        playerAcceleration = 2;
     }
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
    	gTouchDown = false;
+    NSLog(@"touch end!!!");
 }
 
 -(void)update:(CFTimeInterval)currentTime {
@@ -256,13 +257,16 @@
         
         // decrease previous frame speed by friction
         // speed is decreased over time by friction from previous frame
-        playerSpeed *= playerFriction;
         
         // apply new instant boosting acceleration (* if any by Touch *)
         // speed is boosted by instant acceleration
         if( gTouchDown == true )
         {
             playerSpeed += playerAcceleration;
+        }else
+        {
+            playerSpeed *= playerFriction;
+
         }
         // set boosting acceleration to zero after applied
         // so that if no touch occur, no boosting of speed is applied
