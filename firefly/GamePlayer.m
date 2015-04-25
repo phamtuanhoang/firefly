@@ -247,7 +247,7 @@
     }];
     
     //handline moving of item
-    [self enumerateChildNodesWithName:itemName usingBlock:^(SKNode *node, BOOL *stop) {
+    [self enumerateChildNodesWithName:powerUpItem usingBlock:^(SKNode *node, BOOL *stop) {
         //if move out of the screen
         node.position = CGPointMake(node.position.x, node.position.y
                                     - timeSinceLast*movingSpeed);

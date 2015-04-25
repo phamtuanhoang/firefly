@@ -14,8 +14,13 @@
 @property (strong, nonatomic) NSMutableArray *shieldOffFrames;
 @property (strong, nonatomic) SKSpriteNode *shield;
 @property (assign, nonatomic) BOOL shielded;
+@property (assign, nonatomic) BOOL isPowerUp;
+
 @property (assign, nonatomic) float playerAcceleration;
 @property (assign, nonatomic) float playerFriction;
+@property (strong, nonatomic) SKEmitterNode *engineEmitter;
+@property (strong, nonatomic) SKEmitterNode *powerUpEmitter;
+
 
 
 

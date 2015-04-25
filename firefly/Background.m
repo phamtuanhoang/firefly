@@ -14,11 +14,13 @@
 + (Background *)generateNewBackground
 {
     Background *background = [[Background alloc] init];
-    background.color = [SKColor whiteColor];
+    background.color = [SKColor grayColor];
     background.anchorPoint = CGPointMake(0, 0);
     background.name = backgroundName;
     background.position = CGPointMake(0, 0);
     return background;
 }
+
+
 
 @end

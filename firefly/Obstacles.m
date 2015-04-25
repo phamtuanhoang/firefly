@@ -18,7 +18,6 @@
     {
         self.name = obstacleName;
         self.physicsBody.dynamic = NO;
-        self.size = CGSizeMake(self.size.width, 20.0);
     }
     return self;
 }

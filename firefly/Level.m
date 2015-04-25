@@ -28,36 +28,50 @@ typedef enum{stage,m,t,w,th,f,sa} days;
 
 -(void)updateLevel:(int)currentScore
 {
-    if (currentScore == 10) {
+
+    if (currentScore == 15) {
         self.speed += level1MovingSpeed;
         self.obstactGap = level1obstacleGap;
         //higher level, smaller distance
         self.obstacleDistance = level1ObstacleMin;
         self.level = 1;
+        NSDictionary* currentLevel = @{@"CurrentLevel":[NSNumber numberWithFloat:self.level]};
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"NewLevel_Notification"
+         object:self userInfo:currentLevel];
         
-    }else if (currentScore == 20){
+    }else if (currentScore == 25){
         self.speed += level2MovingSpeed;
         self.obstactGap = level2obstacleGap;
         //higher level, smaller distance
         self.obstacleDistance = level2ObstacleMin;
         self.level = 2;
-
+        NSDictionary* currentLevel = @{@"CurrentLevel":[NSNumber numberWithFloat:self.level]};
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"NewLevel_Notification"
+         object:self userInfo:currentLevel];
     }
-    else if (currentScore == 30){
+    else if (currentScore == 35){
         self.speed += level3MovingSpeed;
         self.obstactGap = level3obstacleGap;
         //higher level, smaller distance
         self.obstacleDistance = level3ObstacleMin;
         self.level = 3;
-
+        NSDictionary* currentLevel = @{@"CurrentLevel":[NSNumber numberWithFloat:self.level]};
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"NewLevel_Notification"
+         object:self userInfo:currentLevel];
     }
-    else if (currentScore == 40){
+    else if (currentScore == 45){
         self.speed += level4MovingSpeed;
         self.obstactGap = level4obstacleGap;
         //higher level, smaller distance
         self.obstacleDistance = level4ObstacleMin;
-        self.level = 5;
-
+        self.level = 4;
+        NSDictionary* currentLevel = @{@"CurrentLevel":[NSNumber numberWithFloat:self.level]};
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"NewLevel_Notification"
+         object:self userInfo:currentLevel];
     }
 }
 
@@ -67,6 +81,7 @@ typedef enum{stage,m,t,w,th,f,sa} days;
     self.obstactGap = level1obstacleGap;
     self.obstacleDistance = level1ObstacleMin;
 }
+
 
 
 @end

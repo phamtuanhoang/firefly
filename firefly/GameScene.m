@@ -15,6 +15,7 @@
 #import "GameOver.h"
 #import "GameIntroScene.h"
 #import "GamePlayer.h"
+#import "Item.h"
 
 @implementation GameScene
 {
@@ -39,6 +40,8 @@
     
     Level *level;
     Firefly *fireFly;
+    
+    NSTimer *powerUpTime;
 
 }
 
@@ -56,6 +59,8 @@
     self.physicsWorld.gravity = CGVectorMake(0,0);
     self.physicsWorld.contactDelegate = self;
 
+    
+    addHelpItem = true;
     //set up level instance
     level = [[Level alloc] init];
 
@@ -86,7 +91,7 @@
     float current_pos = 0;
     float random_x=0;
     float randomObsctacleDistance = 0;
-
+    int test = 0;
     while (TRUE) {
         Obstacles *obs = [[Obstacles alloc]init];
         
@@ -121,8 +126,8 @@
         if (current_pos >= CGRectGetMidY(self.frame)*3.0) {
             break;
         }
+        test+=1;
     }
-        
 }
 
 -(void)setUpFireFly
@@ -131,7 +136,7 @@
     playerSpeed = 0;
     playerAcceleration = 0;
     playerFriction = fireFly.playerFriction;
-    //fireFly.shielded = true;
+//    fireFly.shielded = true;
     fireFly.position =CGPointMake(CGRectGetMidX(self.frame),50);
     [self addChild:fireFly];
 }
@@ -200,8 +205,8 @@
     
     Obstacles *leftNode = [[Obstacles alloc]init];
     leftNode.position = CGPointMake(random_x + self.frame.size.width +level.obstacleDistance + randomObsctacleDistance,lastNodePos + level.obstactGap);
-    leftNode.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:leftNode.size];
     leftNode.size = CGSizeMake(self.frame.size.width, 20.0);
+    leftNode.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:leftNode.size];
     leftNode.physicsBody.categoryBitMask = movingShapeCategory;
     leftNode.physicsBody.contactTestBitMask = playerCategory;
     leftNode.physicsBody.usesPreciseCollisionDetection = YES;
@@ -210,6 +215,15 @@
 
     [self addChild:leftNode];
 
+    
+    if(addHelpItem){
+        Item *powerUp = [[Item alloc] init];
+        powerUp.position =CGPointMake(self.frame.size.width/2,lastNodePos + level.obstactGap + level.obstactGap/2);
+        powerUp.name = powerUpItem;
+        [self addChild:powerUp];
+        addHelpItem = false;
+    }
+    
     
 }
 
@@ -283,10 +297,10 @@
     }];
     
     //handline moving of item
-    [self enumerateChildNodesWithName:itemName usingBlock:^(SKNode *node, BOOL *stop) {
+    [self enumerateChildNodesWithName:powerUpItem usingBlock:^(SKNode *node, BOOL *stop) {
         //if move out of the screen
         node.position = CGPointMake(node.position.x, node.position.y
-                                    - timeSinceLast*movingSpeed);
+                                    - timeSinceLast*level.speed);
         if ((node.position.y < 0)) {
             [node removeFromParent];
         }
@@ -390,6 +404,16 @@
 }
 
 /*
+    check power up
+ */
+-(void)checkPowerUp
+{
+    level.speed += level4MovingSpeed;
+    fireFly.isPowerUp = YES;
+
+}
+
+/*
  
  handling contact of the sprite
  
@@ -413,6 +437,12 @@
         (secondBody.categoryBitMask & movingShapeCategory) != 0)
     {
         [self checkCollision];
+    }
+    // 3
+    if ((firstBody.categoryBitMask & playerCategory) != 0 &&
+        (secondBody.categoryBitMask & itemCategory) != 0)
+    {
+        [self checkPowerUp];
     }
 }
 
