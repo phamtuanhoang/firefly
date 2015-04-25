@@ -1,24 +1,21 @@
 //
-//  GameScene.m
+//  GamePlayer.m
 //  firefly
 //
-//  Created by hoangpham on 18/4/15.
+//  Created by hoangpham on 23/4/15.
 //  Copyright (c) 2015 hoangpham. All rights reserved.
 //
 
-#import "GameScene.h"
+#import "GamePlayer.h"
+#import "Level.h"
 #import "Firefly.h"
 #import "Obstacles.h"
 #import "Common.h"
-#import "Level.h"
 #import "GameData.h"
-#import "GameOver.h"
-#import "GameIntroScene.h"
-#import "GamePlayer.h"
 
-@implementation GameScene
+
+@implementation GamePlayer
 {
-    
     BOOL gTouchDown;
     float playerSpeed;					/* current movement speed */
     float playerAcceleration;			/* acceleration to boost speed */
@@ -36,57 +33,58 @@
     
     //point
     int point;
+    BOOL passing;
     
     Level *level;
-    Firefly *fireFly;
 
 }
 
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        self.currentBackground = [Background generateNewBackground];
-        self.currentBackground.size = CGSizeMake(CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
-        [self addChild:self.currentBackground];
+        
+        
+        NSLog(@"Move to View");
+
+        
+        //set up level instance
+        level = [[Level alloc] init];
+        
+        [self setUpFireFly];
+        [self setUpObstacle];
+        [self addScoreLabel];
+
     }
     return self;
 }
 
+
 -(void)didMoveToView:(SKView *)view {
-    self.physicsWorld.gravity = CGVectorMake(0,0);
-    self.physicsWorld.contactDelegate = self;
-
-    //set up level instance
-    level = [[Level alloc] init];
-
-    [self setUpFireFly];
-    [self setUpObstacle];
-    [self addScoreLabel];
-   
+    
+    
+    
 }
 
--(void)addScoreLabel
+
+//set up fire fly
+-(void)setUpFireFly
 {
-    //add score label
-    scoreLabel = [SKLabelNode labelNodeWithFontNamed:font];
-    scoreLabel.fontColor = [SKColor greenColor];
-    scoreLabel.name = scoreName;
-    scoreLabel.text = [NSString stringWithFormat:@"%ld", [GameData sharedGameData].highScore];
-
-    scoreLabel.fontSize = 50;
-    scoreLabel.position = CGPointMake(CGRectGetWidth(self.frame) - 50, CGRectGetHeight(self.frame) - 50);
-    scoreLabel.zPosition = 2;
-    [self addChild:scoreLabel];
-    point = 0;
+    playerSpeed = 0;
+    playerAcceleration = 0;
+    playerFriction = 0.95f;
+    Firefly *fireFly = [[Firefly alloc]init];
+    
+    //fireFly.shielded = true;
+    fireFly.position =CGPointMake(CGRectGetMidX(self.frame),50);
+    [self addChild:fireFly];
 }
+
 
 -(void)setUpObstacle
 {
     //start initialize obstacle from middle of the screen
     float current_pos = 0;
     float random_x=0;
-    float randomObsctacleDistance = 0;
-
     while (TRUE) {
         Obstacles *obs = [[Obstacles alloc]init];
         
@@ -94,20 +92,18 @@
         random_x = arc4random_uniform(CGRectGetWidth(self.frame) - level.obstacleDistance);
         random_x = random_x - CGRectGetWidth(self.frame)/2 ;
         obs.size = CGSizeMake(self.frame.size.width, 20.0);
-        obs.position = CGPointMake(random_x,CGRectGetHeight(self.frame) + current_pos);
+        obs.position = CGPointMake(random_x,CGRectGetMidY(self.frame) + current_pos);
         obs.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:obs.size];
         obs.physicsBody.categoryBitMask = movingShapeCategory;
         obs.physicsBody.contactTestBitMask = playerCategory;
         obs.physicsBody.usesPreciseCollisionDetection = YES;
         obs.physicsBody.collisionBitMask = collisionBitMask;
         obs.physicsBody.dynamic = NO;
-
+        
         [self addChild:obs];
         
-        randomObsctacleDistance = arc4random_uniform(level.obstacleDistance);
-        
         Obstacles *leftNode = [[Obstacles alloc]init];
-        leftNode.position = CGPointMake(random_x +self.frame.size.width + level.obstacleDistance + randomObsctacleDistance,CGRectGetHeight(self.frame) + current_pos);
+        leftNode.position = CGPointMake(random_x +self.frame.size.width + level.obstacleDistance,CGRectGetMidY(self.frame) + current_pos);
         leftNode.size = CGSizeMake(self.size.width, 20.0);
         leftNode.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:leftNode.size];
         leftNode.physicsBody.categoryBitMask = movingShapeCategory;
@@ -116,102 +112,40 @@
         leftNode.physicsBody.collisionBitMask = collisionBitMask;
         leftNode.physicsBody.dynamic = NO;
         [self addChild:leftNode];
-        current_pos += level.obstactGap;
-
+        current_pos += obstacleGap;
+        
         if (current_pos >= CGRectGetMidY(self.frame)*3.0) {
             break;
         }
     }
-        
-}
-
--(void)setUpFireFly
-{
-    fireFly = [[Firefly alloc]init];
-    playerSpeed = 0;
-    playerAcceleration = 0;
-    playerFriction = fireFly.playerFriction;
-    //fireFly.shielded = true;
-    fireFly.position =CGPointMake(CGRectGetMidX(self.frame),50);
-    [self addChild:fireFly];
-}
-
-
-/*
-    setupGame Over Scene
-*/
--(void)gameOverScene
-{
-   
-    //gameOverScene.zPosition = 1;
     
-    for (SKNode* node in self.children) {
-        node.paused = YES;
-    }
-    
-    [self runAction:
-     [SKAction sequence:@[
-                          [SKAction waitForDuration:1.0],
-                          [SKAction runBlock:^{
-                                SKTransition *reveal = [SKTransition revealWithDirection:SKTransitionDirectionDown duration:1.0];
-                                GameOver *gameOverScene = [[GameOver alloc] initWithSize:self.size];
-                                [self.view presentScene:gameOverScene transition: reveal];
-                            }]
-                          ]
-      ]];
 }
 
 /*
-    replay clicked
+    add score label
  */
--(void)replayGame:(NSNotification *)notification
+
+-(void)addScoreLabel
 {
-    [self.view presentScene:nil];
-    [self removeFromParent];
-    self.scene.view.paused = NO;
+    //add score label
+    scoreLabel = [SKLabelNode labelNodeWithFontNamed:font];
+    scoreLabel.fontColor = [SKColor greenColor];
+    scoreLabel.name = scoreName;
+    scoreLabel.text = [NSString stringWithFormat:@"%ld", [GameData sharedGameData].highScore];
+    
+    scoreLabel.fontSize = 50;
+    scoreLabel.position = CGPointMake(CGRectGetWidth(self.frame) - 50, CGRectGetHeight(self.frame) - 50);
+    scoreLabel.zPosition = 2;
+    [self addChild:scoreLabel];
+    point = 0;
+    passing = false;
 }
 
 
+/*
+    get highest node
+ */
 
--(void)addObstacle
-{
-    float random_x=0;
-    random_x = arc4random_uniform(CGRectGetWidth(self.frame) - level.obstacleDistance);
-    random_x = random_x - CGRectGetWidth(self.frame)/2 ;
-
-    
-    float lastNodePos = [self getHighestNodePos];
-    float randomObsctacleDistance = 0;
-
-    
-    Obstacles *rightNode = [[Obstacles alloc]init];
-    rightNode.position = CGPointMake(random_x,lastNodePos + obstacleGap);
-    rightNode.size = CGSizeMake(self.frame.size.width, 20.0);
-    rightNode.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:rightNode.size];
-    rightNode.physicsBody.categoryBitMask = movingShapeCategory;
-    rightNode.physicsBody.contactTestBitMask = playerCategory;
-    rightNode.physicsBody.usesPreciseCollisionDetection = YES;
-    rightNode.physicsBody.collisionBitMask = collisionBitMask;
-    rightNode.physicsBody.dynamic = NO;
-
-
-    [self addChild:rightNode];
-    randomObsctacleDistance = arc4random_uniform(level.obstacleDistance);
-    
-    Obstacles *leftNode = [[Obstacles alloc]init];
-    leftNode.position = CGPointMake(random_x + self.frame.size.width +level.obstacleDistance + randomObsctacleDistance,lastNodePos + level.obstactGap);
-    leftNode.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:leftNode.size];
-    leftNode.size = CGSizeMake(self.frame.size.width, 20.0);
-    leftNode.physicsBody.categoryBitMask = movingShapeCategory;
-    leftNode.physicsBody.contactTestBitMask = playerCategory;
-    leftNode.physicsBody.usesPreciseCollisionDetection = YES;
-    leftNode.physicsBody.collisionBitMask =collisionBitMask;
-    leftNode.physicsBody.dynamic = NO;
-
-    [self addChild:leftNode];
-
-    
-}
 
 -(int)getHighestNodePos
 {
@@ -230,31 +164,60 @@
     return nodePosTmp;
 }
 
+/*
+    add obstacle
+ */
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /* Called when a touch begins */
-    UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInNode:self];
-    //Firefly *firefly = (Firefly *)[self nodeAtPoint:[touch locationInNode:self]];
-    // set touch down to true
-    gTouchDown = true;
-    
-    /* Determine movement direction */
-    if( location.x <= self.frame.size.width / 2 ) {
-        // move left set acceleration to negative
-        playerAcceleration = -fireFly.playerAcceleration;
-    }
-    else {
-        // move right set acceleration to negative
-        playerAcceleration = fireFly.playerAcceleration;
-    }
-
-}
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+-(void)addObstacle
 {
-    gTouchDown = false;
+    float random_x=0;
+    random_x = arc4random_uniform(CGRectGetWidth(self.frame) - level.obstacleDistance);
+    random_x = random_x - CGRectGetWidth(self.frame)/2 ;
+    
+    
+    float lastNodePos = [self getHighestNodePos];
+    
+    
+    Obstacles *rightNode = [[Obstacles alloc]init];
+    rightNode.position = CGPointMake(random_x,lastNodePos + obstacleGap);
+    rightNode.size = CGSizeMake(self.frame.size.width, 20.0);
+    rightNode.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:rightNode.size];
+    rightNode.physicsBody.categoryBitMask = movingShapeCategory;
+    rightNode.physicsBody.contactTestBitMask = playerCategory;
+    rightNode.physicsBody.usesPreciseCollisionDetection = YES;
+    rightNode.physicsBody.collisionBitMask = collisionBitMask;
+    rightNode.physicsBody.dynamic = NO;
+    
+    
+    [self addChild:rightNode];
+    
+    Obstacles *leftNode = [[Obstacles alloc]init];
+    leftNode.position = CGPointMake(random_x + self.frame.size.width + level.obstacleDistance,lastNodePos + obstacleGap);
+    leftNode.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:leftNode.size];
+    leftNode.size = CGSizeMake(self.frame.size.width, 20.0);
+    leftNode.physicsBody.categoryBitMask = movingShapeCategory;
+    leftNode.physicsBody.contactTestBitMask = playerCategory;
+    leftNode.physicsBody.usesPreciseCollisionDetection = YES;
+    leftNode.physicsBody.collisionBitMask =collisionBitMask;
+    leftNode.physicsBody.dynamic = NO;
+    
+    [self addChild:leftNode];
+    
+    
 }
+
+
+/*
+    update point label
+ */
+-(void)updatePointLabel
+{
+    point+=1;
+    [GameData sharedGameData].score = point/2;
+    scoreLabel.text = [ NSString stringWithFormat:@"%ld", [GameData sharedGameData].score];
+    [level updateLevel:(int)[GameData sharedGameData].score];
+}
+
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
@@ -272,13 +235,14 @@
     //handline moving of player
     [self enumerateChildNodesWithName:obstacleName usingBlock:^(SKNode *node, BOOL *stop) {
         //if move out of the screen
-       node.position = CGPointMake(node.position.x, node.position.y - timeSinceLast*level.speed);
-    
+        node.position = CGPointMake(node.position.x, node.position.y - timeSinceLast*level.speed);
+        
         
         if ((node.position.y < 0)) {
             [node removeFromParent];
             [self addObstacle];
             [self updatePointLabel];
+            
         }
     }];
     
@@ -291,8 +255,8 @@
             [node removeFromParent];
         }
     }];
-
-
+    
+    
     
     [self enumerateChildNodesWithName:fireflyName usingBlock:^(SKNode *node, BOOL *stop) {
         /********************************************/
@@ -357,36 +321,20 @@
 }
 
 
--(void)updatePointLabel
-{
-    point+=1;
-    [GameData sharedGameData].score = point/2;
-    scoreLabel.text = [ NSString stringWithFormat:@"%ld", [GameData sharedGameData].score];
-    [level updateLevel:(int)[GameData sharedGameData].score];
-    if (level.level == 3) {
-        fireFly.playerAcceleration = fireFlyMoveSpeed2;
-    }
-}
 
 
 -(void)checkCollision
 {
-    //stop moving objects
-    level.speed = 0.0;
-    playerSpeed = 0.0;
-    self.userInteractionEnabled = NO;
+    NSLog(@"Contact");
     
-    
-    //save high score
     [GameData sharedGameData].highScore = MAX([GameData sharedGameData].score,
                                               [GameData sharedGameData].highScore);
-
+    
     [[GameData sharedGameData] save];
     [[GameData sharedGameData] reset];
     
-    //display game over scene
-    [self gameOverScene];
-
+    
+    
 }
 
 /*
@@ -398,6 +346,7 @@
 -(void)didBeginContact:(SKPhysicsContact *)contact {
     // 1
     SKPhysicsBody *firstBody, *secondBody;
+    
     if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask)
     {
         firstBody = contact.bodyA;

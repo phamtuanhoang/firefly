@@ -10,5 +10,13 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface Firefly : SKSpriteNode
+@property (strong, nonatomic) NSMutableArray *shieldOnFrames;;
+@property (strong, nonatomic) NSMutableArray *shieldOffFrames;
+@property (strong, nonatomic) SKSpriteNode *shield;
+@property (assign, nonatomic) BOOL shielded;
+@property (assign, nonatomic) float playerAcceleration;
+@property (assign, nonatomic) float playerFriction;
+
+
 
 @end

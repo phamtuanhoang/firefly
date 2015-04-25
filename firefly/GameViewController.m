@@ -8,6 +8,7 @@
 
 #import "GameViewController.h"
 #import "GameScene.h"
+#import "GameIntroScene.h"
 
 @implementation SKScene (Unarchive)
 
@@ -44,11 +45,12 @@
     // Create and configure the scene.
     //GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
     
-    GameScene *scene = [GameScene sceneWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
-    
+    //GameScene *scene = [GameScene sceneWithSize:skView.bounds.size];
+    //scene.scaleMode = SKSceneScaleModeAspectFill;
+    GameIntroScene *introScene =  [GameIntroScene sceneWithSize:skView.bounds.size];
+    introScene.scaleMode = SKSceneScaleModeAspectFill;
     // Present the scene.
-    [skView presentScene:scene];
+    [skView presentScene:introScene];
 }
 
 - (BOOL)shouldAutorotate

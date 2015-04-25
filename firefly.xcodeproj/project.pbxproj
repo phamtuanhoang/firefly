@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F31478B71AE7D0C900435E38 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = F31478B61AE7D0C900435E38 /* Level.m */; };
+		F31478BB1AE7D7FF00435E38 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = F31478BA1AE7D7FF00435E38 /* GameData.m */; };
+		F31478BF1AE7E6EA00435E38 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = F31478BE1AE7E6EA00435E38 /* GameOver.m */; };
+		F31478C31AE7F59200435E38 /* GameIntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F31478C21AE7F59200435E38 /* GameIntroScene.m */; };
 		F35F1EF01AE2666400642EEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1EEF1AE2666400642EEA /* main.m */; };
 		F35F1EF31AE2666400642EEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1EF21AE2666400642EEA /* AppDelegate.m */; };
 		F35F1EF61AE2666400642EEA /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1EF51AE2666400642EEA /* GameScene.m */; };
@@ -19,7 +23,9 @@
 		F35F1F1B1AE2669A00642EEA /* Firefly.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1F1A1AE2669A00642EEA /* Firefly.m */; };
 		F35F1F201AE266CD00642EEA /* Obstacles.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1F1F1AE266CD00642EEA /* Obstacles.m */; };
 		F38BDF011AE278B800C40F66 /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = F38BDF001AE278B800C40F66 /* Background.m */; };
-		F3BB81551AE3E9EB00330F30 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = F3BB81541AE3E9EB00330F30 /* Item.m */; };
+		F3C706DB1AE92A9400CE6D2B /* GamePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C706DA1AE92A9400CE6D2B /* GamePlayer.m */; };
+		F3DAFEC81AE6A78300AE44FE /* shieldRed.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F3DAFEC71AE6A78300AE44FE /* shieldRed.atlas */; };
+		F3DAFECA1AE6A79700AE44FE /* deletePurple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F3DAFEC91AE6A79700AE44FE /* deletePurple.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F31478B51AE7D0C900435E38 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		F31478B61AE7D0C900435E38 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
+		F31478B91AE7D7FF00435E38 /* GameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameData.h; sourceTree = "<group>"; };
+		F31478BA1AE7D7FF00435E38 /* GameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameData.m; sourceTree = "<group>"; };
+		F31478BD1AE7E6EA00435E38 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
+		F31478BE1AE7E6EA00435E38 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
+		F31478C11AE7F59200435E38 /* GameIntroScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameIntroScene.h; sourceTree = "<group>"; };
+		F31478C21AE7F59200435E38 /* GameIntroScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameIntroScene.m; sourceTree = "<group>"; };
 		F35F1EEA1AE2666400642EEA /* firefly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firefly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35F1EEE1AE2666400642EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F35F1EEF1AE2666400642EEA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -56,8 +70,10 @@
 		F35F1F1F1AE266CD00642EEA /* Obstacles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obstacles.m; sourceTree = "<group>"; };
 		F38BDEFF1AE278B800C40F66 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
 		F38BDF001AE278B800C40F66 /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Background.m; sourceTree = "<group>"; };
-		F3BB81531AE3E9EB00330F30 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		F3BB81541AE3E9EB00330F30 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		F3C706D91AE92A9400CE6D2B /* GamePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayer.h; sourceTree = "<group>"; };
+		F3C706DA1AE92A9400CE6D2B /* GamePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayer.m; sourceTree = "<group>"; };
+		F3DAFEC71AE6A78300AE44FE /* shieldRed.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = shieldRed.atlas; sourceTree = "<group>"; };
+		F3DAFEC91AE6A79700AE44FE /* deletePurple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = deletePurple.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +94,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F31478B41AE7D0AC00435E38 /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				F31478B51AE7D0C900435E38 /* Level.h */,
+				F31478B61AE7D0C900435E38 /* Level.m */,
+			);
+			name = Level;
+			sourceTree = "<group>";
+		};
+		F31478B81AE7D7F400435E38 /* GameData */ = {
+			isa = PBXGroup;
+			children = (
+				F31478B91AE7D7FF00435E38 /* GameData.h */,
+				F31478BA1AE7D7FF00435E38 /* GameData.m */,
+			);
+			name = GameData;
+			sourceTree = "<group>";
+		};
+		F31478BC1AE7E6D300435E38 /* GameOver */ = {
+			isa = PBXGroup;
+			children = (
+				F31478BD1AE7E6EA00435E38 /* GameOver.h */,
+				F31478BE1AE7E6EA00435E38 /* GameOver.m */,
+			);
+			name = GameOver;
+			sourceTree = "<group>";
+		};
+		F31478C01AE7F42200435E38 /* Game intro */ = {
+			isa = PBXGroup;
+			children = (
+				F31478C11AE7F59200435E38 /* GameIntroScene.h */,
+				F31478C21AE7F59200435E38 /* GameIntroScene.m */,
+			);
+			name = "Game intro";
+			sourceTree = "<group>";
+		};
 		F35F1EE11AE2666400642EEA = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +151,12 @@
 		F35F1EEC1AE2666400642EEA /* firefly */ = {
 			isa = PBXGroup;
 			children = (
-				F3BB81521AE3E9CD00330F30 /* item */,
+				F31478C01AE7F42200435E38 /* Game intro */,
+				F31478BC1AE7E6D300435E38 /* GameOver */,
+				F31478B81AE7D7F400435E38 /* GameData */,
+				F31478B41AE7D0AC00435E38 /* Level */,
+				F3DAFEC91AE6A79700AE44FE /* deletePurple.atlas */,
+				F3DAFEC71AE6A78300AE44FE /* shieldRed.atlas */,
 				F38BDEFE1AE2787200C40F66 /* background */,
 				F35F1F1D1AE266BB00642EEA /* obstacles */,
 				F35F1F181AE2668400642EEA /* firefly */,
@@ -115,6 +172,8 @@
 				F35F1EFF1AE2666400642EEA /* Images.xcassets */,
 				F35F1F011AE2666400642EEA /* LaunchScreen.xib */,
 				F35F1EED1AE2666400642EEA /* Supporting Files */,
+				F3C706D91AE92A9400CE6D2B /* GamePlayer.h */,
+				F3C706DA1AE92A9400CE6D2B /* GamePlayer.m */,
 			);
 			path = firefly;
 			sourceTree = "<group>";
@@ -170,15 +229,6 @@
 				F38BDF001AE278B800C40F66 /* Background.m */,
 			);
 			name = background;
-			sourceTree = "<group>";
-		};
-		F3BB81521AE3E9CD00330F30 /* item */ = {
-			isa = PBXGroup;
-			children = (
-				F3BB81531AE3E9EB00330F30 /* Item.h */,
-				F3BB81541AE3E9EB00330F30 /* Item.m */,
-			);
-			name = item;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +312,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3DAFECA1AE6A79700AE44FE /* deletePurple.atlas in Resources */,
 				F35F1F031AE2666400642EEA /* LaunchScreen.xib in Resources */,
 				F35F1F001AE2666400642EEA /* Images.xcassets in Resources */,
 				F35F1EF81AE2666400642EEA /* GameScene.sks in Resources */,
+				F3DAFEC81AE6A78300AE44FE /* shieldRed.atlas in Resources */,
 				F35F1EFE1AE2666400642EEA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,13 +335,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3BB81551AE3E9EB00330F30 /* Item.m in Sources */,
+				F31478BB1AE7D7FF00435E38 /* GameData.m in Sources */,
+				F31478BF1AE7E6EA00435E38 /* GameOver.m in Sources */,
+				F3C706DB1AE92A9400CE6D2B /* GamePlayer.m in Sources */,
 				F35F1EFB1AE2666400642EEA /* GameViewController.m in Sources */,
 				F35F1EF31AE2666400642EEA /* AppDelegate.m in Sources */,
+				F31478B71AE7D0C900435E38 /* Level.m in Sources */,
 				F35F1EF61AE2666400642EEA /* GameScene.m in Sources */,
 				F38BDF011AE278B800C40F66 /* Background.m in Sources */,
 				F35F1EF01AE2666400642EEA /* main.m in Sources */,
 				F35F1F201AE266CD00642EEA /* Obstacles.m in Sources */,
+				F31478C31AE7F59200435E38 /* GameIntroScene.m in Sources */,
 				F35F1F1B1AE2669A00642EEA /* Firefly.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,7 +475,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = firefly/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -433,7 +489,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = firefly/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

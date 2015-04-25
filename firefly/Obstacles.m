@@ -18,18 +18,10 @@
     {
         self.name = obstacleName;
         self.physicsBody.dynamic = NO;
+        self.size = CGSizeMake(self.size.width, 20.0);
     }
     return self;
 }
 
-- (int)getNodeCount
-{
-    return self.countValue;
-}
-
--(void)setNodeCount:(int)nodeCountToAssign
-{
-    self.countValue = nodeCountToAssign;
-}
 
 @end
