@@ -150,8 +150,8 @@
         self.engineEmitter.particleColor = [SKColor colorWithRed:20 green:20 blue:20 alpha:0.5];
     }else{
         self.engineEmitter.particleColorSequence = nil;
-        self.engineEmitter.particleColorBlendFactor = 1.0;
-        self.engineEmitter.particleColor = [SKColor whiteColor];
+        self.engineEmitter.particleColorBlendFactor = 0.5;
+        self.engineEmitter.particleColor = [SKColor orangeColor];
     }
    
 }
@@ -174,18 +174,24 @@
         self.physicsBody.categoryBitMask = itemCategory;
 
         
-        SKAction *removePowerup = [SKAction waitForDuration:3];
+        SKAction *removePowerup = [SKAction waitForDuration:4];
         [self runAction:removePowerup completion:^{
             self.powerUpEmitter.particleBirthRate = 0;
-            self.physicsBody.categoryBitMask = playerCategory;
+            
+            self.isPowerUp = NO;
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"EndPowerUp_Notification"
+             object:self userInfo:nil];
+            
+            SKAction *updatePlayerCategory = [SKAction waitForDuration:0.5];
+            [self runAction:updatePlayerCategory completion:^{
+                self.physicsBody.categoryBitMask = playerCategory;
+                
+            }];
         }];
         
     }
-    
-
 }
-
-
 
 -(void)dealloc
 {

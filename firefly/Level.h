@@ -14,13 +14,18 @@
 @property (assign, nonatomic) long score;
 @property (assign, nonatomic) long level;
 @property (assign, nonatomic) long speed;
+
 @property (assign, nonatomic) long obstactGap;
 @property (assign, nonatomic) float obstacleDistance;
+@property (assign, nonatomic) BOOL showPowerUp;
+
 
 
 
 
 -(void)resetSpeed;
 -(void)updateLevel:(int)currentScore;
+-(void)displayPowerUp:(int)currentScore;
+
 
 @end

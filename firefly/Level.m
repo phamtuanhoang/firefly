@@ -75,6 +75,17 @@ typedef enum{stage,m,t,w,th,f,sa} days;
     }
 }
 
+-(void)displayPowerUp:(int)currentScore
+{
+    if (currentScore % 11 == 0) {
+        self.showPowerUp = YES;
+    }else{
+        self.showPowerUp = NO;
+    }
+}
+
+
+
 -(void)resetSpeed
 {
     self.speed = movingSpeed;

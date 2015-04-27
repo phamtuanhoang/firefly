@@ -28,31 +28,35 @@ static unsigned int movingSpeed = 150;
 static unsigned int fireFlyMoveSpeed = 3;
 static unsigned int fireFlyMoveSpeed2 = 5;
 
-static unsigned int acceleration = 1;
+static unsigned int acceleration = 2;
 
 static unsigned int obstacleMinDistance = 40;
+static unsigned int obstacleMinGapLowSpeed = 200;
+static unsigned int obstacleMinGapHighSpeed = 250;
 
 
-static unsigned int level1MovingSpeed = 10;
-static unsigned int level1obstacleGap = 150;
+
+static unsigned int level1MovingSpeed = 30;
+static unsigned int level1obstacleGap = 400;
 static unsigned int level1ObstacleMin = 80;
 
-
-static unsigned int level2MovingSpeed = 15;
-static unsigned int level2obstacleGap = 170;
+g
+static unsigned int level2MovingSpeed = 50;
+static unsigned int level2obstacleGap = 400;
 static unsigned int level2ObstacleMin = 60;
 
 
 static unsigned int level3MovingSpeed = 20;
-static unsigned int level3obstacleGap = 190;
-static unsigned int level3ObstacleMin = 40;
+static unsigned int level3obstacleGap = 400;
+static unsigned int level3ObstacleMin = 60;
 
 
-static unsigned int level4MovingSpeed = 25;
-static unsigned int level4obstacleGap = 210;
-static unsigned int level4ObstacleMin = 20;
+static unsigned int level4MovingSpeed = 10;
+static unsigned int level4obstacleGap = 400;
+static unsigned int level4ObstacleMin = 60;
 
 
+static unsigned int powerUpSpeed = 450;
 
 
 

@@ -48,7 +48,7 @@ SKSpriteNode *downArrow;
     
     if (node.name == gameIntroTap)
     {
-        SKTransition *reveal =[SKTransition revealWithDirection:SKTransitionDirectionDown duration:0.5];
+        SKTransition *reveal =[SKTransition crossFadeWithDuration:1.0];
         GameScene * scene = [GameScene sceneWithSize:self.view.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
         [self.view presentScene:scene transition:reveal];

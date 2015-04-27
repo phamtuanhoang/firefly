@@ -41,8 +41,10 @@
     Level *level;
     Firefly *fireFly;
     
-    NSTimer *powerUpTime;
-
+    long currentSpeed;
+    //check is power up
+    BOOL powerup;
+    BOOL displayPowerUp;
 }
 
 
@@ -63,10 +65,17 @@
     addHelpItem = true;
     //set up level instance
     level = [[Level alloc] init];
-
+    
+    //initialize speed
+    currentSpeed = level.speed;
+    powerup = NO;
+    displayPowerUp = NO;
+    
     [self setUpFireFly];
     [self setUpObstacle];
     [self addScoreLabel];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(endPowerUp:) name:@"EndPowerUp_Notification" object:nil];
    
 }
 
@@ -90,8 +99,11 @@
     //start initialize obstacle from middle of the screen
     float current_pos = 0;
     float random_x=0;
+    float random_y=0;
+
     float randomObsctacleDistance = 0;
-    int test = 0;
+    float randomObsctacleGap = 0;
+
     while (TRUE) {
         Obstacles *obs = [[Obstacles alloc]init];
         
@@ -121,12 +133,15 @@
         leftNode.physicsBody.collisionBitMask = collisionBitMask;
         leftNode.physicsBody.dynamic = NO;
         [self addChild:leftNode];
-        current_pos += level.obstactGap;
-
+        
+        //randome obstacle gap
+        random_y = arc4random_uniform(obstacleMinGapLowSpeed);
+        random_y += obstacleMinGapLowSpeed;
+        current_pos += random_y;
+        
         if (current_pos >= CGRectGetMidY(self.frame)*3.0) {
             break;
         }
-        test+=1;
     }
 }
 
@@ -181,16 +196,30 @@
 -(void)addObstacle
 {
     float random_x=0;
+    float random_y=0;
+
     random_x = arc4random_uniform(CGRectGetWidth(self.frame) - level.obstacleDistance);
     random_x = random_x - CGRectGetWidth(self.frame)/2 ;
 
     
     float lastNodePos = [self getHighestNodePos];
     float randomObsctacleDistance = 0;
+    
+    //randome obstacle gap
+    if (level.level > 2) {
+        random_y = arc4random_uniform(obstacleMinGapHighSpeed);
+        random_y += obstacleMinGapHighSpeed;
+    }else{
+        random_y = arc4random_uniform(obstacleMinGapLowSpeed);
+        random_y += obstacleMinGapLowSpeed;
+    }
+    
+    
+    
 
     
     Obstacles *rightNode = [[Obstacles alloc]init];
-    rightNode.position = CGPointMake(random_x,lastNodePos + obstacleGap);
+    rightNode.position = CGPointMake(random_x,lastNodePos + random_y);
     rightNode.size = CGSizeMake(self.frame.size.width, 20.0);
     rightNode.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:rightNode.size];
     rightNode.physicsBody.categoryBitMask = movingShapeCategory;
@@ -204,7 +233,7 @@
     randomObsctacleDistance = arc4random_uniform(level.obstacleDistance);
     
     Obstacles *leftNode = [[Obstacles alloc]init];
-    leftNode.position = CGPointMake(random_x + self.frame.size.width +level.obstacleDistance + randomObsctacleDistance,lastNodePos + level.obstactGap);
+    leftNode.position = CGPointMake(random_x + self.frame.size.width +level.obstacleDistance + randomObsctacleDistance,lastNodePos + random_y);
     leftNode.size = CGSizeMake(self.frame.size.width, 20.0);
     leftNode.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:leftNode.size];
     leftNode.physicsBody.categoryBitMask = movingShapeCategory;
@@ -214,17 +243,25 @@
     leftNode.physicsBody.dynamic = NO;
 
     [self addChild:leftNode];
-
     
-    if(addHelpItem){
-        Item *powerUp = [[Item alloc] init];
-        powerUp.position =CGPointMake(self.frame.size.width/2,lastNodePos + level.obstactGap + level.obstactGap/2);
-        powerUp.name = powerUpItem;
-        [self addChild:powerUp];
-        addHelpItem = false;
+    
+    if(level.showPowerUp){
+        //check if already have power up item
+        SKNode *temp = [self childNodeWithName:powerUpItem];
+        if (!temp) {
+            random_x = arc4random_uniform(CGRectGetWidth(self.frame)/2);
+            random_x += CGRectGetWidth(self.frame)/4 ;
+            
+            Item *powerUp = [[Item alloc] init];
+            powerUp.position =CGPointMake(random_x,lastNodePos + random_y/2);
+            powerUp.name = powerUpItem;
+            [self addChild:powerUp];
+            //level.showPowerUp = NO;
+            NSLog(@"CurrentScore: %ld", [GameData sharedGameData].score);
+            NSLog(@"Add item");
+        }
+        
     }
-    
-    
 }
 
 -(int)getHighestNodePos
@@ -286,7 +323,7 @@
     //handline moving of player
     [self enumerateChildNodesWithName:obstacleName usingBlock:^(SKNode *node, BOOL *stop) {
         //if move out of the screen
-       node.position = CGPointMake(node.position.x, node.position.y - timeSinceLast*level.speed);
+       node.position = CGPointMake(node.position.x, node.position.y - timeSinceLast*currentSpeed);
     
         
         if ((node.position.y < 0)) {
@@ -300,7 +337,7 @@
     [self enumerateChildNodesWithName:powerUpItem usingBlock:^(SKNode *node, BOOL *stop) {
         //if move out of the screen
         node.position = CGPointMake(node.position.x, node.position.y
-                                    - timeSinceLast*level.speed);
+                                    - timeSinceLast*currentSpeed);
         if ((node.position.y < 0)) {
             [node removeFromParent];
         }
@@ -377,16 +414,19 @@
     [GameData sharedGameData].score = point/2;
     scoreLabel.text = [ NSString stringWithFormat:@"%ld", [GameData sharedGameData].score];
     [level updateLevel:(int)[GameData sharedGameData].score];
-    if (level.level == 3) {
-        fireFly.playerAcceleration = fireFlyMoveSpeed2;
+    
+    if(!powerup){
+        currentSpeed = level.speed;
     }
+    [level displayPowerUp:(int)[GameData sharedGameData].score];
+
 }
 
 
 -(void)checkCollision
 {
     //stop moving objects
-    level.speed = 0.0;
+    currentSpeed = 0.0;
     playerSpeed = 0.0;
     self.userInteractionEnabled = NO;
     
@@ -408,10 +448,16 @@
  */
 -(void)checkPowerUp
 {
-    level.speed += level4MovingSpeed;
+    currentSpeed = powerUpSpeed;
+    powerup = YES;
     fireFly.isPowerUp = YES;
-
 }
+
+-(void)endPowerUp:(NSNotification *)notification
+{
+    powerup = NO;
+}
+
 
 /*
  
@@ -446,6 +492,10 @@
     }
 }
 
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"EndPowerUp_Notification" object:nil];
+}
 
 
 @end
