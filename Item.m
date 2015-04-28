@@ -20,11 +20,11 @@
     {
         self.name = powerUpItem;
         self.size = CGSizeMake(20.0, 20.0);
-        self.physicsBody.dynamic = NO;
         self.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:self.size];
         self.physicsBody.categoryBitMask = itemCategory;
         self.physicsBody.contactTestBitMask = playerCategory;
         self.physicsBody.dynamic = NO;
+
     }
     return self;
 }

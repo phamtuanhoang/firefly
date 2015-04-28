@@ -16,6 +16,8 @@
 #import "GameIntroScene.h"
 #import "GamePlayer.h"
 #import "Item.h"
+#import "Bottle.h"
+#import "Tie.h"
 
 @implementation GameScene
 {
@@ -100,9 +102,7 @@
     float current_pos = 0;
     float random_x=0;
     float random_y=0;
-
     float randomObsctacleDistance = 0;
-    float randomObsctacleGap = 0;
 
     while (TRUE) {
         Obstacles *obs = [[Obstacles alloc]init];
@@ -214,35 +214,59 @@
         random_y += obstacleMinGapLowSpeed;
     }
     
-    
-    
 
-    
-    Obstacles *rightNode = [[Obstacles alloc]init];
-    rightNode.position = CGPointMake(random_x,lastNodePos + random_y);
-    rightNode.size = CGSizeMake(self.frame.size.width, 20.0);
-    rightNode.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:rightNode.size];
-    rightNode.physicsBody.categoryBitMask = movingShapeCategory;
-    rightNode.physicsBody.contactTestBitMask = playerCategory;
-    rightNode.physicsBody.usesPreciseCollisionDetection = YES;
-    rightNode.physicsBody.collisionBitMask = collisionBitMask;
-    rightNode.physicsBody.dynamic = NO;
-
-
-    [self addChild:rightNode];
-    randomObsctacleDistance = arc4random_uniform(level.obstacleDistance);
-    
     Obstacles *leftNode = [[Obstacles alloc]init];
-    leftNode.position = CGPointMake(random_x + self.frame.size.width +level.obstacleDistance + randomObsctacleDistance,lastNodePos + random_y);
+    leftNode.position = CGPointMake(random_x,lastNodePos + random_y);
     leftNode.size = CGSizeMake(self.frame.size.width, 20.0);
     leftNode.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:leftNode.size];
-    leftNode.physicsBody.categoryBitMask = movingShapeCategory;
-    leftNode.physicsBody.contactTestBitMask = playerCategory;
-    leftNode.physicsBody.usesPreciseCollisionDetection = YES;
-    leftNode.physicsBody.collisionBitMask =collisionBitMask;
-    leftNode.physicsBody.dynamic = NO;
-
     [self addChild:leftNode];
+   
+    
+
+    randomObsctacleDistance = arc4random_uniform(level.obstacleDistance);
+    
+    Obstacles *rightNode = [[Obstacles alloc]init];
+    rightNode.position = CGPointMake(random_x + self.frame.size.width +level.obstacleDistance + randomObsctacleDistance,lastNodePos + random_y);
+    rightNode.size = CGSizeMake(self.frame.size.width, 20.0);
+    rightNode.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:rightNode.size];
+    [self addChild:rightNode];
+    
+    
+    if ([GameData sharedGameData].score % 2 == 0) {
+        //add tie on top the bottle
+        Tie *leftTie = [[Tie alloc]init];
+        leftTie.position = CGPointMake(leftNode.position.x+leftNode.size.width/2 - leftTie.size.width, leftNode.position.y-leftTie.size.height+leftNode.size.height/2);
+        [self addChild:leftTie];
+        
+        
+        //add bottle to catch the fire fly
+        Bottle *leftBottle = [[Bottle alloc]init];
+        leftBottle.position =CGPointMake(leftTie.position.x - leftTie.size.width/2,leftTie.position.y - leftTie.size.height/2);
+        [self addChild:leftBottle];
+        
+//        //add tie on top the bottle
+        Tie *rightTie = [[Tie alloc]init];
+        rightTie.position = CGPointMake(rightNode.position.x-rightNode.size.width/2 , rightNode.position.y-rightTie.size.height+rightNode.size.height/2);
+        [self addChild:rightTie];
+        
+        
+        //add bottle to catch the fire fly
+        Bottle *rightBottle = [[Bottle alloc]init];
+        rightBottle.position =CGPointMake(rightTie.position.x - rightTie.size.width/2,rightTie.position.y - rightTie.size.height/2);
+        [self addChild:rightBottle];
+        
+        
+    }
+
+    
+    
+    
+    
+//    UIBezierPath *circle = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.frame.size.width/2, self.frame.size.height/2) radius:10.0 startAngle:-(M_PI/2.0) endAngle:-((M_PI/2.0)-((1.0/180.0)*M_PI)) clockwise:YES];
+//    SKAction *followSquare = [SKAction followPath:circle.CGPath asOffset:YES orientToPath:NO duration:5.0];
+//    SKAction *repeat = [SKAction repeatActionForever:followSquare];
+//    [bottle runAction:repeat];
+    
     
     
     if(level.showPowerUp){
@@ -254,11 +278,7 @@
             
             Item *powerUp = [[Item alloc] init];
             powerUp.position =CGPointMake(random_x,lastNodePos + random_y/2);
-            powerUp.name = powerUpItem;
             [self addChild:powerUp];
-            //level.showPowerUp = NO;
-            NSLog(@"CurrentScore: %ld", [GameData sharedGameData].score);
-            NSLog(@"Add item");
         }
         
     }
@@ -342,6 +362,28 @@
             [node removeFromParent];
         }
     }];
+    
+    //handline moving of bottle
+    [self enumerateChildNodesWithName:bottleItem usingBlock:^(SKNode *node, BOOL *stop) {
+        //if move out of the screen
+        node.position = CGPointMake(node.position.x, node.position.y
+                                    - timeSinceLast*currentSpeed);
+        if ((node.position.y < 0)) {
+            [node removeFromParent];
+        }
+    }];
+
+    
+    //handline moving of tie
+    [self enumerateChildNodesWithName:tie usingBlock:^(SKNode *node, BOOL *stop) {
+        //if move out of the screen
+        node.position = CGPointMake(node.position.x, node.position.y
+                                    - timeSinceLast*currentSpeed);
+        if ((node.position.y < 0)) {
+            [node removeFromParent];
+        }
+    }];
+
 
 
     

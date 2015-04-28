@@ -23,6 +23,8 @@
 		F35F1F1B1AE2669A00642EEA /* Firefly.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1F1A1AE2669A00642EEA /* Firefly.m */; };
 		F35F1F201AE266CD00642EEA /* Obstacles.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1F1F1AE266CD00642EEA /* Obstacles.m */; };
 		F38BDF011AE278B800C40F66 /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = F38BDF001AE278B800C40F66 /* Background.m */; };
+		F3A6E5F81AEFB55B00D6E775 /* Bottle.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6E5F71AEFB55B00D6E775 /* Bottle.m */; };
+		F3A6E5FB1AEFCC9200D6E775 /* Tie.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6E5FA1AEFCC9200D6E775 /* Tie.m */; };
 		F3C706DB1AE92A9400CE6D2B /* GamePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C706DA1AE92A9400CE6D2B /* GamePlayer.m */; };
 		F3DAFEC81AE6A78300AE44FE /* shieldRed.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F3DAFEC71AE6A78300AE44FE /* shieldRed.atlas */; };
 		F3DAFECA1AE6A79700AE44FE /* deletePurple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F3DAFEC91AE6A79700AE44FE /* deletePurple.atlas */; };
@@ -74,6 +76,10 @@
 		F35F1F1F1AE266CD00642EEA /* Obstacles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obstacles.m; sourceTree = "<group>"; };
 		F38BDEFF1AE278B800C40F66 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
 		F38BDF001AE278B800C40F66 /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Background.m; sourceTree = "<group>"; };
+		F3A6E5F61AEFB55B00D6E775 /* Bottle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bottle.h; sourceTree = "<group>"; };
+		F3A6E5F71AEFB55B00D6E775 /* Bottle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bottle.m; sourceTree = "<group>"; };
+		F3A6E5F91AEFCC9200D6E775 /* Tie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tie.h; sourceTree = "<group>"; };
+		F3A6E5FA1AEFCC9200D6E775 /* Tie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tie.m; sourceTree = "<group>"; };
 		F3C706D91AE92A9400CE6D2B /* GamePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayer.h; sourceTree = "<group>"; };
 		F3C706DA1AE92A9400CE6D2B /* GamePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayer.m; sourceTree = "<group>"; };
 		F3DAFEC71AE6A78300AE44FE /* shieldRed.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = shieldRed.atlas; sourceTree = "<group>"; };
@@ -249,6 +255,10 @@
 			children = (
 				F3FD60361AEBD87D0048C33B /* Item.h */,
 				F3FD60371AEBD87D0048C33B /* Item.m */,
+				F3A6E5F61AEFB55B00D6E775 /* Bottle.h */,
+				F3A6E5F71AEFB55B00D6E775 /* Bottle.m */,
+				F3A6E5F91AEFCC9200D6E775 /* Tie.h */,
+				F3A6E5FA1AEFCC9200D6E775 /* Tie.m */,
 			);
 			name = item;
 			path = ..;
@@ -373,7 +383,9 @@
 				F35F1EF01AE2666400642EEA /* main.m in Sources */,
 				F35F1F201AE266CD00642EEA /* Obstacles.m in Sources */,
 				F31478C31AE7F59200435E38 /* GameIntroScene.m in Sources */,
+				F3A6E5FB1AEFCC9200D6E775 /* Tie.m in Sources */,
 				F35F1F1B1AE2669A00642EEA /* Firefly.m in Sources */,
+				F3A6E5F81AEFB55B00D6E775 /* Bottle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

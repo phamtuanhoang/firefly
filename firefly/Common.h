@@ -19,6 +19,9 @@ static NSString *obstacleMaster  = @"obstacleMaster";
 
 static NSString *backgroundName  = @"backgroundName";
 static NSString *powerUpItem  = @"powerUpItem";
+static NSString *bottleItem  = @"bottleItem";
+static NSString *tie  = @"tieItem";
+
 
 
 
@@ -40,7 +43,7 @@ static unsigned int level1MovingSpeed = 30;
 static unsigned int level1obstacleGap = 400;
 static unsigned int level1ObstacleMin = 80;
 
-g
+
 static unsigned int level2MovingSpeed = 50;
 static unsigned int level2obstacleGap = 400;
 static unsigned int level2ObstacleMin = 60;
