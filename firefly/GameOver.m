@@ -22,21 +22,23 @@
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         // 1
-        self.backgroundColor = [SKColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
-    
-        SKSpriteNode *gameOverBtn = [SKSpriteNode spriteNodeWithImageNamed:@"gameover.png"];
-        gameOverBtn.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame)+100);
-        gameOverBtn.size = CGSizeMake(300.0, 150.0);
-        gameOverBtn.name = gameOver;
-        //gameOverBtn.zPosition = 1.0;
+        self.currentBackground = [Background generateGameOverBackground];
+        self.currentBackground.size = CGSizeMake(CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
+        [self addChild:self.currentBackground];
+//    
+//        SKSpriteNode *gameOverBtn = [SKSpriteNode spriteNodeWithImageNamed:@"gameover.png"];
+//        gameOverBtn.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame)+100);
+//        gameOverBtn.size = CGSizeMake(300.0, 150.0);
+//        gameOverBtn.name = gameOver;
+//        //gameOverBtn.zPosition = 1.0;
+//        
+//        [self addChild:gameOverBtn];
         
-        [self addChild:gameOverBtn];
         
         
-        
-        SKSpriteNode *retryButton = [SKSpriteNode spriteNodeWithImageNamed:@"replay.png"];
-        retryButton.position = CGPointMake(CGRectGetMidX(self.frame) - 100,CGRectGetMidY(self.frame) - 50);
-        retryButton.size = CGSizeMake(40.0, 40.0);
+        SKSpriteNode *retryButton = [SKSpriteNode spriteNodeWithImageNamed:@"Button_Replay.png"];
+        retryButton.position =  CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame) - 150);
+        retryButton.size = CGSizeMake(80.0, 80.0);
         retryButton.name = replay;
         retryButton.zPosition = 1.0;
         [self addChild:retryButton];
@@ -44,16 +46,16 @@
         
         
         //add share on scocial button
-        SKSpriteNode *facebook = [SKSpriteNode spriteNodeWithImageNamed:@"facebook.png"];
-        facebook.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame) - 50);
+        SKSpriteNode *facebook = [SKSpriteNode spriteNodeWithImageNamed:@"Button_Share.png"];
+        facebook.position =  CGPointMake(CGRectGetMidX(self.frame) - 120,CGRectGetMidY(self.frame) - 150);
         facebook.size =  CGSizeMake(40.0, 40.0);
         facebook.name = shareOnFb;
         facebook.zPosition = 1.0;
         [self addChild:facebook];
         
         //add share on scocial button
-        SKSpriteNode *twitter = [SKSpriteNode spriteNodeWithImageNamed:@"tweeter.png"];
-        twitter.position = CGPointMake(CGRectGetMidX(self.frame) + 50,CGRectGetMidY(self.frame) - 50);
+        SKSpriteNode *twitter = [SKSpriteNode spriteNodeWithImageNamed:@"Button_Share.png"];
+        twitter.position = CGPointMake(CGRectGetMidX(self.frame) + 70,CGRectGetMidY(self.frame) - 150);
         twitter.size =  CGSizeMake(40.0, 40.0);
         twitter.name = shareonTwitter;
         twitter.zPosition = 1.0;
@@ -61,18 +63,18 @@
         
         
         //add share on facebook and twitter
-        SKSpriteNode *leaderBoardBtn = [SKSpriteNode spriteNodeWithImageNamed:@"leaderboard.png"];
-        leaderBoardBtn.position = CGPointMake(CGRectGetMidX(self.frame) - 50,CGRectGetMidY(self.frame) - 50);
+        SKSpriteNode *leaderBoardBtn = [SKSpriteNode spriteNodeWithImageNamed:@"Button_Leader.png"];
+        leaderBoardBtn.position = CGPointMake(CGRectGetMidX(self.frame) - 70,CGRectGetMidY(self.frame) - 150);
         leaderBoardBtn.size =  CGSizeMake(40.0, 40.0);
         leaderBoardBtn.name = leaderBoard;
         leaderBoardBtn.zPosition = 1.0;
         [self addChild:leaderBoardBtn];
         
         
-        soundOn = [SKTexture textureWithImageNamed:@"volume_up.png"];
-        soundOff =[SKTexture textureWithImageNamed:@"no_volume.png"];
+        soundOn = [SKTexture textureWithImageNamed:@"Button_Sound.png"];
+        soundOff =[SKTexture textureWithImageNamed:@"Button_Sound.png"];
         volumeBtn = [SKSpriteNode spriteNodeWithTexture:soundOn];
-        volumeBtn.position = CGPointMake(CGRectGetMidX(self.frame) + 100,CGRectGetMidY(self.frame) - 50);
+        volumeBtn.position = CGPointMake(CGRectGetMidX(self.frame) + 120,CGRectGetMidY(self.frame) - 150);
         volumeBtn.size =  CGSizeMake(40.0, 40.0);
         volumeBtn.name = soundName;
         volumeBtn.zPosition = 1.0;

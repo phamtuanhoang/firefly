@@ -10,19 +10,21 @@
 #import "Common.h"
 
 @implementation Obstacles
-@synthesize countValue;
-
--(instancetype)init
 {
-    self = [super initWithImageNamed:@"rectangleBlack"];
+    SKTexture *_brachTexture;
+}
+
+
+
+
+
+
+
+-(instancetype)initWithTexture:(SKTexture *)texture
+{
+    self = [super initWithTexture:texture];
     {
         self.name = obstacleName;
-        self.physicsBody.dynamic = NO;
-        self.physicsBody.categoryBitMask = movingShapeCategory;
-        self.physicsBody.contactTestBitMask = playerCategory;
-        self.physicsBody.usesPreciseCollisionDetection = YES;
-        self.physicsBody.collisionBitMask = collisionBitMask;
-        self.physicsBody.dynamic = NO;
     }
     return self;
 }

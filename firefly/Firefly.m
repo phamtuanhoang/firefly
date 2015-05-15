@@ -13,10 +13,12 @@
 @implementation Firefly
 @synthesize playerAcceleration;
 @synthesize shield;
+@synthesize engineEmitter,powerUpEmitter;
 
 -(instancetype)init
 {
     self = [super initWithImageNamed:@"cicleBlue"];
+
     {
         self.name = fireflyName;
         self.physicsBody.dynamic = NO;
@@ -28,29 +30,36 @@
         self.physicsBody.collisionBitMask = collisionBitMask ;
         self.physicsBody.dynamic = YES;
         self.physicsBody.usesPreciseCollisionDetection = YES;
-        self.alpha = 0.5;
-        self.shield = [[SKSpriteNode alloc] init];
-        self.shield.blendMode = SKBlendModeAdd;
-        [self addChild:self.shield];
+        //self.alpha = 0.5;
         
-        
-        //add sprite kit particle
-        self.engineEmitter = [NSKeyedUnarchiver
-                              unarchiveObjectWithFile:
-                              [[NSBundle mainBundle]
-                               pathForResource:@"Fireflies" ofType:@"sks"]];
-        self.engineEmitter.position = CGPointMake(0, self.size.height/4);
-        self.engineEmitter.name = fireflyParticle;
-        [self addChild:self.engineEmitter];
-        self.engineEmitter.hidden = NO;
+        [self addChild:[self loadEmitterNode:@"Light"]];
     }
-    [self setupAnimations];
+    
+    
+    
+   
+    //[self setupAnimations];
 
     self.playerAcceleration = fireFlyMoveSpeed;
     self.playerFriction = 0.95f;
-    
+
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeColorWhenReachNewLevel:) name:@"NewLevel_Notification" object:nil];
+    
+
     return self;
+}
+
+
+- (SKEmitterNode *)loadEmitterNode:(NSString *)emitterFileName
+{
+    NSString *emitterPath = [[NSBundle mainBundle] pathForResource:emitterFileName ofType:@"sks"];
+    SKEmitterNode *emitterNode = [NSKeyedUnarchiver unarchiveObjectWithFile:emitterPath];
+    
+    //do some view specific tweaks
+    emitterNode.particlePosition = CGPointMake(0, -self.size.height/2);
+    //emitterNode.hidden = NO;
+    
+    return emitterNode;
 }
 
 
@@ -96,7 +105,6 @@
             //self.physicsBody.categoryBitMask = itemCategory;
         }
     } else if (_shielded) {
-        NSLog(@"shield off");
         [self blinkRed];
         [self.shield removeActionForKey:@"shieldOn"];
         [self.shield runAction:[SKAction animateWithTextures:self.
@@ -169,11 +177,11 @@
                                 pathForResource:@"powerUp" ofType:@"sks"]];
         self.powerUpEmitter.position = CGPointMake(0, -self.size.height);
         self.powerUpEmitter.name = fireflyPowerUp;
+        //self.powerUpEmitter.physicsBody.categoryBitMask = powerUpStateCategory;
         [self addChild:self.powerUpEmitter];
         self.powerUpEmitter.hidden = NO;
-        self.physicsBody.categoryBitMask = itemCategory;
-
-        
+        self.physicsBody.categoryBitMask = powerUpStateCategory;
+      
         SKAction *removePowerup = [SKAction waitForDuration:4];
         [self runAction:removePowerup completion:^{
             self.powerUpEmitter.particleBirthRate = 0;

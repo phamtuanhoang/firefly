@@ -22,15 +22,17 @@
 		F35F1F0F1AE2666400642EEA /* fireflyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1F0E1AE2666400642EEA /* fireflyTests.m */; };
 		F35F1F1B1AE2669A00642EEA /* Firefly.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1F1A1AE2669A00642EEA /* Firefly.m */; };
 		F35F1F201AE266CD00642EEA /* Obstacles.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F1F1F1AE266CD00642EEA /* Obstacles.m */; };
+		F382FB7A1AFA1F37000515EA /* Rope.m in Sources */ = {isa = PBXBuildFile; fileRef = F382FB791AFA1F37000515EA /* Rope.m */; };
+		F382FB7C1AFA4F9E000515EA /* rope_ring.png in Resources */ = {isa = PBXBuildFile; fileRef = F382FB7B1AFA4F9E000515EA /* rope_ring.png */; };
 		F38BDF011AE278B800C40F66 /* Background.m in Sources */ = {isa = PBXBuildFile; fileRef = F38BDF001AE278B800C40F66 /* Background.m */; };
 		F3A6E5F81AEFB55B00D6E775 /* Bottle.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6E5F71AEFB55B00D6E775 /* Bottle.m */; };
 		F3A6E5FB1AEFCC9200D6E775 /* Tie.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A6E5FA1AEFCC9200D6E775 /* Tie.m */; };
 		F3C706DB1AE92A9400CE6D2B /* GamePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C706DA1AE92A9400CE6D2B /* GamePlayer.m */; };
+		F3D704861B062D3F00743490 /* Light.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3D704851B062D3F00743490 /* Light.sks */; };
 		F3DAFEC81AE6A78300AE44FE /* shieldRed.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F3DAFEC71AE6A78300AE44FE /* shieldRed.atlas */; };
 		F3DAFECA1AE6A79700AE44FE /* deletePurple.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F3DAFEC91AE6A79700AE44FE /* deletePurple.atlas */; };
-		F3F6E48B1AEB44730023868E /* Fireflies.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3F6E4891AEB44730023868E /* Fireflies.sks */; };
-		F3F6E48C1AEB44730023868E /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = F3F6E48A1AEB44730023868E /* spark.png */; };
-		F3FD60341AEBD6020048C33B /* powerUp.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3FD60331AEBD6020048C33B /* powerUp.sks */; };
+		F3F6E48C1AEB44730023868E /* spark1.png in Resources */ = {isa = PBXBuildFile; fileRef = F3F6E48A1AEB44730023868E /* spark1.png */; };
+		F3FD60341AEBD6020048C33B /* PowerUp.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3FD60331AEBD6020048C33B /* PowerUp.sks */; };
 		F3FD60381AEBD87E0048C33B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FD60371AEBD87D0048C33B /* Item.m */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,9 @@
 		F35F1F1C1AE266B300642EEA /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		F35F1F1E1AE266CD00642EEA /* Obstacles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Obstacles.h; sourceTree = "<group>"; };
 		F35F1F1F1AE266CD00642EEA /* Obstacles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Obstacles.m; sourceTree = "<group>"; };
+		F382FB781AFA1F37000515EA /* Rope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rope.h; sourceTree = "<group>"; };
+		F382FB791AFA1F37000515EA /* Rope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rope.m; sourceTree = "<group>"; };
+		F382FB7B1AFA4F9E000515EA /* rope_ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rope_ring.png; sourceTree = "<group>"; };
 		F38BDEFF1AE278B800C40F66 /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
 		F38BDF001AE278B800C40F66 /* Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Background.m; sourceTree = "<group>"; };
 		F3A6E5F61AEFB55B00D6E775 /* Bottle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bottle.h; sourceTree = "<group>"; };
@@ -82,11 +87,11 @@
 		F3A6E5FA1AEFCC9200D6E775 /* Tie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tie.m; sourceTree = "<group>"; };
 		F3C706D91AE92A9400CE6D2B /* GamePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayer.h; sourceTree = "<group>"; };
 		F3C706DA1AE92A9400CE6D2B /* GamePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayer.m; sourceTree = "<group>"; };
+		F3D704851B062D3F00743490 /* Light.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Light.sks; sourceTree = "<group>"; };
 		F3DAFEC71AE6A78300AE44FE /* shieldRed.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = shieldRed.atlas; sourceTree = "<group>"; };
 		F3DAFEC91AE6A79700AE44FE /* deletePurple.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = deletePurple.atlas; sourceTree = "<group>"; };
-		F3F6E4891AEB44730023868E /* Fireflies.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Fireflies.sks; path = ../Fireflies.sks; sourceTree = "<group>"; };
-		F3F6E48A1AEB44730023868E /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../spark.png; sourceTree = "<group>"; };
-		F3FD60331AEBD6020048C33B /* powerUp.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = powerUp.sks; sourceTree = "<group>"; };
+		F3F6E48A1AEB44730023868E /* spark1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark1.png; path = ../spark1.png; sourceTree = "<group>"; };
+		F3FD60331AEBD6020048C33B /* PowerUp.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = PowerUp.sks; path = ../PowerUp.sks; sourceTree = "<group>"; };
 		F3FD60361AEBD87D0048C33B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		F3FD60371AEBD87D0048C33B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,7 +153,6 @@
 		F35F1EE11AE2666400642EEA = {
 			isa = PBXGroup;
 			children = (
-				F3FD60331AEBD6020048C33B /* powerUp.sks */,
 				F35F1EEC1AE2666400642EEA /* firefly */,
 				F35F1F0B1AE2666400642EEA /* fireflyTests */,
 				F35F1EEB1AE2666400642EEA /* Products */,
@@ -167,9 +171,10 @@
 		F35F1EEC1AE2666400642EEA /* firefly */ = {
 			isa = PBXGroup;
 			children = (
+				F382FB771AFA1C72000515EA /* Rope */,
 				F3FD60351AEBD85D0048C33B /* item */,
-				F3F6E4891AEB44730023868E /* Fireflies.sks */,
-				F3F6E48A1AEB44730023868E /* spark.png */,
+				F3D704821B062C2C00743490 /* Particle */,
+				F382FB7B1AFA4F9E000515EA /* rope_ring.png */,
 				F31478C01AE7F42200435E38 /* Game intro */,
 				F31478BC1AE7E6D300435E38 /* GameOver */,
 				F31478B81AE7D7F400435E38 /* GameData */,
@@ -241,6 +246,15 @@
 			name = obstacles;
 			sourceTree = "<group>";
 		};
+		F382FB771AFA1C72000515EA /* Rope */ = {
+			isa = PBXGroup;
+			children = (
+				F382FB781AFA1F37000515EA /* Rope.h */,
+				F382FB791AFA1F37000515EA /* Rope.m */,
+			);
+			name = Rope;
+			sourceTree = "<group>";
+		};
 		F38BDEFE1AE2787200C40F66 /* background */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +262,16 @@
 				F38BDF001AE278B800C40F66 /* Background.m */,
 			);
 			name = background;
+			sourceTree = "<group>";
+		};
+		F3D704821B062C2C00743490 /* Particle */ = {
+			isa = PBXGroup;
+			children = (
+				F3D704851B062D3F00743490 /* Light.sks */,
+				F3F6E48A1AEB44730023868E /* spark1.png */,
+				F3FD60331AEBD6020048C33B /* PowerUp.sks */,
+			);
+			name = Particle;
 			sourceTree = "<group>";
 		};
 		F3FD60351AEBD85D0048C33B /* item */ = {
@@ -347,13 +371,14 @@
 			files = (
 				F3DAFECA1AE6A79700AE44FE /* deletePurple.atlas in Resources */,
 				F35F1F031AE2666400642EEA /* LaunchScreen.xib in Resources */,
-				F3F6E48B1AEB44730023868E /* Fireflies.sks in Resources */,
 				F35F1F001AE2666400642EEA /* Images.xcassets in Resources */,
 				F35F1EF81AE2666400642EEA /* GameScene.sks in Resources */,
-				F3F6E48C1AEB44730023868E /* spark.png in Resources */,
+				F3F6E48C1AEB44730023868E /* spark1.png in Resources */,
 				F3DAFEC81AE6A78300AE44FE /* shieldRed.atlas in Resources */,
 				F35F1EFE1AE2666400642EEA /* Main.storyboard in Resources */,
-				F3FD60341AEBD6020048C33B /* powerUp.sks in Resources */,
+				F3FD60341AEBD6020048C33B /* PowerUp.sks in Resources */,
+				F382FB7C1AFA4F9E000515EA /* rope_ring.png in Resources */,
+				F3D704861B062D3F00743490 /* Light.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +403,7 @@
 				F35F1EFB1AE2666400642EEA /* GameViewController.m in Sources */,
 				F35F1EF31AE2666400642EEA /* AppDelegate.m in Sources */,
 				F31478B71AE7D0C900435E38 /* Level.m in Sources */,
+				F382FB7A1AFA1F37000515EA /* Rope.m in Sources */,
 				F35F1EF61AE2666400642EEA /* GameScene.m in Sources */,
 				F38BDF011AE278B800C40F66 /* Background.m in Sources */,
 				F35F1EF01AE2666400642EEA /* main.m in Sources */,

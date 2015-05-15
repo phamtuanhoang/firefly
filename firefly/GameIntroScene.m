@@ -22,13 +22,16 @@ SKSpriteNode *downArrow;
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         // 1
-        self.backgroundColor = [SKColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
-        self.physicsWorld.gravity = CGVectorMake(0,0);
+        self.currentBackground = [Background generateGameIntroBackground];
+        self.currentBackground.size = CGSizeMake(CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
+        [self addChild:self.currentBackground];
         
         // 3
-        tapBtn = [SKSpriteNode spriteNodeWithImageNamed:@"tap.png"];
-        tapBtn.position = CGPointMake(CGRectGetMidX(self.frame) ,CGRectGetMidY(self.frame) );
+        tapBtn = [SKSpriteNode spriteNodeWithImageNamed:@"Button_Start"];
+        tapBtn.position = CGPointMake(CGRectGetMidX(self.frame) ,CGRectGetMidY(self.frame)-200 );
         tapBtn.name = gameIntroTap;
+        tapBtn.size =  CGSizeMake(100.0, 150.0);
+
         tapBtn.zPosition = 1.0;
         [self addChild:tapBtn];
         
@@ -54,7 +57,14 @@ SKSpriteNode *downArrow;
         [self.view presentScene:scene transition:reveal];
         
     }
-   
 }
+-(void)dealloc
+{
+    if (self.scene !=nil) {
+        [self.scene removeAllChildren];
+        [self.scene removeFromParent];
+    }
+}
+
 
 @end

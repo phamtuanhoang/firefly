@@ -20,7 +20,7 @@
     {
         self.name = bottleItem;
         self.size = CGSizeMake(40.0, 40.0);
-        self.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:self.size];
+        self.physicsBody =[SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.frame.size.width/2, self.frame.size.height/2)];
         self.physicsBody.categoryBitMask = movingShapeCategory;
         self.physicsBody.contactTestBitMask = playerCategory;
         self.physicsBody.dynamic = NO;

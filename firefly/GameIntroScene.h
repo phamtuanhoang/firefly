@@ -7,7 +7,11 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "Background.h"
 
 @interface GameIntroScene : SKScene
+
+@property (strong, nonatomic) Background *currentBackground;
+
 
 @end

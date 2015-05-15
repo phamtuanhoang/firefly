@@ -11,5 +11,8 @@
 @interface Background : SKSpriteNode
 
 + (Background *)generateNewBackground;
++ (Background *)generateGameOverBackground;
++ (Background *)generateGameIntroBackground;
+
 
 @end

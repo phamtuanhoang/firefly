@@ -44,7 +44,7 @@ static unsigned int level1obstacleGap = 400;
 static unsigned int level1ObstacleMin = 80;
 
 
-static unsigned int level2MovingSpeed = 50;
+static unsigned int level2MovingSpeed = 30;
 static unsigned int level2obstacleGap = 400;
 static unsigned int level2ObstacleMin = 60;
 
@@ -67,7 +67,10 @@ static const uint32_t playerCategory =  0x1 << 0;
 static const uint32_t movingShapeCategory = 0x1 << 1;
 static unsigned int collisionBitMask = 0;
 
-static const uint32_t itemCategory     =  0x1 << 2;
+static const uint32_t itemCategory     =  8;
+static const uint32_t particleCategory     =  16;
+static const uint32_t powerUpStateCategory     =  32;
+
 
 
 static NSString *font = @"Arial Rounded MT Bold";
@@ -90,6 +93,10 @@ static NSString *soundName = @"sound";
 //game intro
 static NSString *gameIntroTap = @"Tap";
 static NSString *gameIntroName = @"GameIntroScene";
+
+//game intro
+static NSString *rope = @"Rope";
+
 
 
 #endif

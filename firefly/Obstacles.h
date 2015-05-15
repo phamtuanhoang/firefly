@@ -10,6 +10,5 @@
 
 @interface Obstacles : SKSpriteNode
 
-@property( readwrite,nonatomic, assign) int countValue;
 
 @end
